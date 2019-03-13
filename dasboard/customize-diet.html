@@ -343,14 +343,36 @@
             <!-- BREAKFAST -->
             <div class="container">
                 <div class="row">
-                    <div class="col-lg-4">
+                    <div class="col-4">
                         <h4 class="h5 mb-0 text-gray-800">BREAKFAST</h4>
                     </div>
-                    <div class="col-lg-8 ">
+                    <div class="col-8 ">
                         <!-- Button trigger modal -->
                         <button type="button" class="btn btn-light btn-sm" data-toggle="modal" data-target="#exampleModal">
                           Add food
                         </button>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-12">
+                        <table class="table">
+                            <thead class="thead-dark">
+                                <tr>
+                                  <th scope="col">Item</th>
+                                  <th scope="col">Protein</th>
+                                  <th scope="col">Carbs</th>
+                                  <th scope="col">Fats</th>
+                                </tr>
+                            </thead>
+                          <tbody>
+                            <tr>
+                              <th scope="row">Egg</th>
+                              <td>30</td>
+                              <td>25</td>
+                              <td>20</td>
+                            </tr>
+                          </tbody>
+                        </table>
                     </div>
                 </div>
             <hr>
@@ -368,13 +390,70 @@
                         <!-- Modal main section -->
                         <div class="container">
                             <div class="row">
-                                <div class="input-group">
-                                    <input type="text" class="form-control bg-light border-0 small" placeholder="Search for..." aria-label="Search" aria-describedby="basic-addon2">
-                                    <div class="input-group-append">
-                                        <button class="btn btn-primary" type="button">
-                                            <i class="fas fa-search fa-sm"></i>
-                                        </button>
+                                 <!-- SEARCH BAR FOR THE FOOD -->
+                                <div class="col-12">
+                                    <div class="input-group">
+                                        <input type="text" class="form-control bg-light border-0 small" placeholder="Search for..." aria-label="Search" aria-describedby="basic-addon2">
+                                        <div class="input-group-append">
+                                            <button class="btn btn-primary" type="button">
+                                                <i class="fas fa-search fa-sm"></i>
+                                            </button>
+                                        </div>
                                     </div>
+                                </div>
+                                 <!-- PIE CHART FOR THE FOOD -->
+                                <div class="col-12">
+                                    <div class="chart-pie pt-4">
+                                    <canvas id="foodpiechart"></canvas>
+                                    </div>
+                                    <hr>     
+                                </div>
+                                <!-- content -->
+                                <div class="col-12">
+                                    <div class="row">
+                                        <div class="col-4">
+                                            <div class="align-items-streach">
+                                                <h4>Egg</h4>
+                                            </div>
+                                        </div>
+                                        <div class="col-8">
+                                            <form>
+                                                <div class="form-row align-items-center">
+                                                    <div class="col-auto my-1">
+                                                        <select class="custom-select mr-sm-2" id="inlineFormCustomSelect">
+                                                            <option selected>serving size</option>
+                                                            <option value="1">100 gm</option>
+                                                            <option value="2">1 cup</option>
+                                                            <option value="3">1 oz</option>
+                                                        </select>
+                                                    </div>
+                                                </div>
+                                            </form>
+                                        </div>
+                                    </div>
+                                    
+                                    <table class="table table-sm table-dark">
+                                      <thead>
+                                        <tr>
+                                          <th scope="col">protein (gm)</th>
+                                          <th scope="col" id="protein">30</th>
+                                        </tr>
+                                      </thead>
+                                      <tbody>
+                                        <tr>
+                                          <th scope="row">Carbohydrates (gm)</th>
+                                          <td id="carbs">25</td>
+                                        </tr>
+                                        <tr>
+                                          <th scope="row">Fats (gm)</th>
+                                          <td id="fats">20</td>
+                                        </tr>
+                                        <tr>
+                                          <th scope="row">Calories (cals)</th>
+                                          <td colspan="2">400</td>
+                                        </tr>
+                                      </tbody>
+                                    </table>
                                 </div>
                                 
                             </div>
@@ -600,9 +679,8 @@
         <!-- Page level plugins -->
         <script src="vendor/chart.js/Chart.min.js"></script>
 
-        <!-- Page level custom scripts -->
-        <script src="js/demo/chart-area-demo.js"></script>
-        <script src="js/demo/chart-pie-demo.js"></script>
+        <!-- food pie chart script -->
+        <script src="js/demo/foodpiechart.js"></script>
 
 </body>
 
