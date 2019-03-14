@@ -35,22 +35,23 @@ function showRecipes() {
         success: function (data) {
             var code = '<div class="container"><div class="row my-4">';
             window.localStorage.setItem('data', JSON.stringify(data));
-            for (var j = 0; j < 10; j++) {
+            for (var j = 0; j < 15; j++) {
                 var arr = data.hits[j].recipe.dietLabels;
                 
-                code += ' <div class="card m-3 w-30 float-left>\
-                <a href="showrecipes.html" onclick="fill(\'' + data.hits[j].recipe.label + '\')"><img class="card-img-top img-fluid" src=' + data.hits[j].recipe.image + ' alt="" href="showrecipes.html?data=' + data + '"></a>\
+                code += ' <div class="card m-3 w-30 float-left">\
+                <a href="showrecipes.html" onclick="fill(\'' + data.hits[j].recipe.label + '\')"><img class="card-img-top img-fluid" src=' + data.hits[j].recipe.image + ' alt="" ></a>\
                 <div class="card-body">\
                     <h4 class="card-title">' + data.hits[j].recipe.label + '</h4>\
                     <p class="card-text">Calories: \
                         ' + data.hits[j].recipe.calories + '</p><p>';
                 for (var i = 0; i < arr.length; i++) {
-                    code += arr[i] + "&nbsp &nbsp &nbsp";
+                    code += arr[i] + "&nbsp;&nbsp;&nbsp";
                 }
                 code += '</p></div></div>';
             }
             $("#sp1").append(code + '</div>\n\
                 </div></div>');
+				alert(code);
         },
         error: function (jqXHR, textStatus, errorThrown) {
             alert("Oops! Something went wrong!");
