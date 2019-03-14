@@ -393,9 +393,9 @@
                                  <!-- SEARCH BAR FOR THE FOOD -->
                                 <div class="col-12">
                                     <div class="input-group">
-                                        <input type="text" class="form-control bg-light border-0 small" placeholder="Search for..." aria-label="Search" aria-describedby="basic-addon2">
+                                        <input type="text" id='dropdown' class="form-control bg-light border-0 small" autocomplete='off' placeholder="Search for..." aria-label="Search" aria-describedby="basic-addon2">
                                         <div class="input-group-append">
-                                            <button class="btn btn-primary" type="button">
+                                            <button class="btn btn-primary" type="button" onclick='search()'>
                                                 <i class="fas fa-search fa-sm"></i>
                                             </button>
                                         </div>
@@ -420,11 +420,9 @@
                                             <form>
                                                 <div class="form-row align-items-center">
                                                     <div class="col-auto my-1">
-                                                        <select class="custom-select mr-sm-2" id="inlineFormCustomSelect">
+                                                        <select class="custom-select mr-sm-2" onchange="check(this.selectedIndex)" id="inlineFormCustomSelect">
                                                             <option selected>serving size</option>
-                                                            <option value="1">100 gm</option>
-                                                            <option value="2">1 cup</option>
-                                                            <option value="3">1 oz</option>
+                                                            
                                                         </select>
                                                     </div>
                                                 </div>
@@ -450,7 +448,7 @@
                                         </tr>
                                         <tr>
                                           <th scope="row">Calories (cals)</th>
-                                          <td colspan="2">400</td>
+                                          <td id="calories" colspan="2">400</td>
                                         </tr>
                                       </tbody>
                                     </table>
@@ -681,6 +679,8 @@
 
         <!-- food pie chart script -->
         <script src="js/demo/foodpiechart.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-3-typeahead/4.0.2/bootstrap3-typeahead.min.js"></script>
+		<script type="text/javascript" src="js/customize-diet.js"></script>
 
 </body>
 

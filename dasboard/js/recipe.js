@@ -26,7 +26,9 @@ function showRecipes() {
     var data = {
         q: foodName,
         app_id: '6940bd00',
-        app_key: '54aba77a1d1cf67ea104f9539b78d96c'
+        app_key: '54aba77a1d1cf67ea104f9539b78d96c',
+		from:'0',
+		to:'15'
     };
     $.ajax({
         url: url,
@@ -35,7 +37,10 @@ function showRecipes() {
         success: function (data) {
             var code = '<div class="container"><div class="row my-4">';
             window.localStorage.setItem('data', JSON.stringify(data));
-            for (var j = 0; j < 15; j++) {
+			var end=data.hits.length;
+			if(end>15) end=14;
+			//alert(end);
+            for (var j = 0; j < end; j++) {
                 var arr = data.hits[j].recipe.dietLabels;
                 
                 code += ' <div class="card m-3 w-30 float-left">\
@@ -51,7 +56,6 @@ function showRecipes() {
             }
             $("#sp1").append(code + '</div>\n\
                 </div></div>');
-				alert(code);
         },
         error: function (jqXHR, textStatus, errorThrown) {
             alert("Oops! Something went wrong!");
