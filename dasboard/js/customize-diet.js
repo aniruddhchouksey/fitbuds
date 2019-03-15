@@ -49,12 +49,19 @@ function search(){
             //}
             //if (search === null)
                 display(jsonData.hints[0].food.foodId);
+
         },
         error: function (jqXHR, textStatus, errorThrown) {
             alert("Oops! Something went wrong!");
 
         },
         data: JSON.stringify()
+    });
+    $(document).ready(function(){
+        $('#dietbutton').click(function() {
+            $('#foodresult').toggle();
+            // $('#piechart').append("<canvas id="foodpiechart"></canvas>");
+        });
     });
 	}
 	function check(index){
