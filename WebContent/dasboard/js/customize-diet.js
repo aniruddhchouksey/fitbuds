@@ -23,6 +23,7 @@ $(document).ready(function () {
 function search(){
 	var item = $("#dropdown").val();
 	$("#inlineFormCustomSelect").empty();
+	alert('lola');
 	$("#inlineFormCustomSelect").append("<option selected>serving size</option>");
 	var link = "https://api.edamam.com/api/food-database/parser?ingr=" + item + "&app_id=a6471d58&app_key=1371084639e0deae5ca2cae1f0b8a534";
     $.ajax({
@@ -49,12 +50,19 @@ function search(){
             //}
             //if (search === null)
                 display(jsonData.hints[0].food.foodId);
+
         },
         error: function (jqXHR, textStatus, errorThrown) {
             alert("Oops! Something went wrong!");
 
         },
         data: JSON.stringify()
+    });
+    $(document).ready(function(){
+        $('#dietbutton').click(function() {
+            $('#foodresult').toggle();
+            // $('#piechart').append("<canvas id="foodpiechart"></canvas>");
+        });
     });
 	}
 	function check(index){

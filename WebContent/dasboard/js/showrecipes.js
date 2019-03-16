@@ -1,4 +1,4 @@
-$(document).ready(function () {
+ $(document).ready(function () {
     var data = JSON.parse(window.localStorage.getItem('data'));
     var name = window.localStorage.getItem('name');
     var i;
@@ -7,14 +7,14 @@ $(document).ready(function () {
             break;
         }
     }
-    $("#name").html(name);
+    $("#name").html(name);     
     var code = '<div class="card">\
-            <center><img class="card-img-top"  align="middle" style="width:300px;height:300px;margin:50px;" src="' + data.hits[i].recipe.image + '" alt="">\
+            <center><img class="card-img-top"  align="middle" style="width:300px;height:300px;margin:10px;" src="' + data.hits[i].recipe.image + '" alt="">\
             </center>\
-            <div class="card-columns" >\
+            <div class="container" >\
             <div class="card" style="margin:50px;">\
                 <div class="card-body">\
-                    <h3 class="card-title">Ingredients</h3><br>\
+                    <h3 class="card-title">Ingredients</h3><hr><br>\
 <p class="card-text">';
     var quick = data.hits[i].recipe;
     for (var j = 0; j < quick.ingredients.length; j++) {
@@ -25,7 +25,7 @@ $(document).ready(function () {
             </div>\
             <div class="card" style="margin:50px;">\
                 <div class="card-body">\
-                    <h3 class="card-title">Nutrition</h3><br>\
+                    <h3 class="card-title">Nutrition</h3><hr><br>\
                     <h5 class="card-subtitle text-muted">Calories(/serving):&nbsp;' + Math.round(quick.calories / quick.yield) + '&emsp;&emsp; Servings:&nbsp;' + quick.yield + ' </h4><br>\n\
 <p class="card-text">\n\
 Protein:&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&nbsp;'+Math.round(quick.totalNutrients.PROCNT.quantity/quick.yield)+quick.totalNutrients.PROCNT.unit+'</p>\
@@ -37,10 +37,9 @@ Vitamin A:&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;'+Ma
 \n\
    </div>\
         </div>'
-    code+=' <div class="card-columns" >\
-            <div class="card" >\
+    code+='<div class="card" style="margin:50px;" >\
                 <div class="card-body">\
-                    <h3 class="card-title">Preparation</h3><br>\
+                    <h3 class="card-title">Preparation</h3><hr><br>\
 <p class="card-text">For  complete preparation guide, please follow the link<p/><br>\n\
 <center><a href="'+quick.url+'">Instructions</a></center></div></div></div>';
     $("#sp1").append(code);

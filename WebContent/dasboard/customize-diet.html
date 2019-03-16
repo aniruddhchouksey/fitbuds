@@ -381,7 +381,7 @@
                   <div class="modal-dialog" role="document">
                     <div class="modal-content">
                       <div class="modal-header">
-                        <h5 class="modal-title" id="exampleModalLabel">Breakfast</h5>
+                        <h4 class="modal-title" id="exampleModalLabel">Breakfast</h4>
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                           <span aria-hidden="true">&times;</span>
                         </button>
@@ -391,72 +391,97 @@
                         <div class="container">
                             <div class="row">
                                  <!-- SEARCH BAR FOR THE FOOD -->
-                                <div class="col-12">
+                                <div class="col-10">
                                     <div class="input-group">
                                         <input type="text" id='dropdown' class="form-control bg-light border-0 small" autocomplete='off' placeholder="Search for..." aria-label="Search" aria-describedby="basic-addon2">
                                         <div class="input-group-append">
-                                            <button class="btn btn-primary" type="button" onclick='search()'>
+                                            <button class="btn btn-primary" type="button" id="dietbutton" onclick='search()'>
                                                 <i class="fas fa-search fa-sm"></i>
                                             </button>
                                         </div>
                                     </div>
                                 </div>
-                                 <!-- PIE CHART FOR THE FOOD -->
-                                <div class="col-12">
-                                    <div class="chart-pie pt-4">
-                                    <canvas id="foodpiechart"></canvas>
-                                    </div>
-                                    <hr>     
+                                <!-- SEARCH BUTTON CUSTOM DIET WALA -->
+                                <div class="col-lg-2 justify-content-center">
+                                    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal">Custom</button>
+                                    <!-- Modal -->
+                                      <div class="modal fade" id="myModal" role="dialog">
+                                        <div class="modal-dialog modal-sm">
+                                        
+                                          <!-- Modal content-->
+                                          <div class="modal-content">
+                                            <div class="modal-header">
+                                              <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                              <h4 class="modal-title">Modal Header</h4>
+                                            </div>
+                                            <div class="modal-body">
+                                              <p>Some text in the modal.</p>
+                                            </div>
+                                            <div class="modal-footer">
+                                              <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                                            </div>
+                                          </div>
+                                      </div>
                                 </div>
-                                <!-- content -->
-                                <div class="col-12">
-                                    <div class="row">
-                                        <div class="col-4">
-                                            <div class="align-items-streach">
-                                                <h4>Egg</h4>
+                            </div>
+                                <div class="container" style="display: none" id="foodresult">
+                                     <!-- PIE CHART FOR THE FOOD -->
+                                    <div class="col-12">
+                                        <div class="chart-pie pt-4" id="piechart">
+                                        <canvas id="foodpiechart"></canvas>
+                                        </div>
+                                        <hr>     
+                                    </div>
+                                    <!-- content -->
+                                    <div class="col-12">
+                                        <div class="row">
+                                            <div class="col-4">
+                                                <div class="align-items-streach">
+                                                    <h4>Egg</h4>
+                                                </div>
+                                            </div>
+                                            <div class="col-8">
+                                                <form>
+                                                    <div class="form-row align-items-center">
+                                                        <div class="col-auto my-1">
+                                                            <select class="custom-select mr-sm-2" onchange="check(this.selectedIndex)" id="inlineFormCustomSelect">
+                                                                <option selected>serving size</option>
+                                                                
+                                                            </select>
+                                                        </div>
+                                                    </div>
+                                                </form>
                                             </div>
                                         </div>
-                                        <div class="col-8">
-                                            <form>
-                                                <div class="form-row align-items-center">
-                                                    <div class="col-auto my-1">
-                                                        <select class="custom-select mr-sm-2" onchange="check(this.selectedIndex)" id="inlineFormCustomSelect">
-                                                            <option selected>serving size</option>
-                                                            
-                                                        </select>
-                                                    </div>
-                                                </div>
-                                            </form>
-                                        </div>
+                                        
+                                        <table class="table table-sm table-dark">
+                                          <thead>
+                                            <tr>
+                                              <th scope="col">protein (gm)</th>
+                                              <th scope="col" id="protein">30</th>
+                                            </tr>
+                                          </thead>
+                                          <tbody>
+                                            <tr>
+                                              <th scope="row">Carbohydrates (gm)</th>
+                                              <td id="carbs">25</td>
+                                            </tr>
+                                            <tr>
+                                              <th scope="row">Fats (gm)</th>
+                                              <td id="fats">20</td>
+                                            </tr>
+                                            <tr>
+                                              <th scope="row">Calories (cals)</th>
+                                              <td id="calories" colspan="2">400</td>
+                                            </tr>
+                                          </tbody>
+                                        </table>
                                     </div>
                                     
-                                    <table class="table table-sm table-dark">
-                                      <thead>
-                                        <tr>
-                                          <th scope="col">protein (gm)</th>
-                                          <th scope="col" id="protein">30</th>
-                                        </tr>
-                                      </thead>
-                                      <tbody>
-                                        <tr>
-                                          <th scope="row">Carbohydrates (gm)</th>
-                                          <td id="carbs">25</td>
-                                        </tr>
-                                        <tr>
-                                          <th scope="row">Fats (gm)</th>
-                                          <td id="fats">20</td>
-                                        </tr>
-                                        <tr>
-                                          <th scope="row">Calories (cals)</th>
-                                          <td id="calories" colspan="2">400</td>
-                                        </tr>
-                                      </tbody>
-                                    </table>
+                                   </div>
                                 </div>
-                                
                             </div>
-                        </div>
-                      </div>
+                          </div>
                       <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
                         <button type="button" class="btn btn-primary">Save changes</button>

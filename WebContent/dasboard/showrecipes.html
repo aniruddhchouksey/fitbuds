@@ -1,23 +1,28 @@
 <!DOCTYPE html>
 <html lang="en">
 
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <meta http-equiv="X-UA-Compatible" content="ie=edge">
-        <meta name="description" content="">
-        <meta name="author" content="">
-        <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
-        <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
-        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" crossorigin="anonymous">
-        <link href="css/sb-admin-2.min.css" rel="stylesheet">
-        <!--  <link rel="stylesheet" href="css/style.css">-->
-        <title>Recipes</title>
-    </head>
+<head>
 
-    <body>
-        <!-- START HERE -->
-        <!-- Page Wrapper -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Welcome User</title>
+
+    <!-- Custom fonts for this template-->
+    <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
+
+    <!-- Custom styles for this template-->
+    <link href="css/sb-admin-2.min.css" rel="stylesheet">
+
+</head>
+
+<body id="page-top">
+
+    <!-- Page Wrapper -->
     <div id="wrapper">
 
         <!-- Sidebar -->
@@ -41,7 +46,7 @@
                     <span>Dashboard</span></a>
             </li>
             <li class="nav-item active">
-                <a class="nav-link" href="Customize-diet.html">
+                <a class="nav-link" href="index.html">
                     <i class="fas fa-fw fa-utensils"></i>
                     <span>Customize Diet</span></a>
             </li>
@@ -161,9 +166,7 @@
                     <!-- Topbar Search -->
                     <form class="d-none d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search">
                         <div class="input-group">
-                            
                             <input type="text" class="form-control bg-light border-0 small" placeholder="Search for..." aria-label="Search" aria-describedby="basic-addon2">
-
                             <div class="input-group-append">
                                 <button class="btn btn-primary" type="button">
                                     <i class="fas fa-search fa-sm"></i>
@@ -335,29 +338,33 @@
                 </nav>
                 <!-- End of Topbar -->
 
+                <!-- FOOD SECTION -->
+                  <h1 class="display-3 text-center my-4" id='name'>Search for recipes</h1>
+                    <span id='sp1'></span>
+        
 
-        <div class="container">
-            <div class="row justify-content-center">
-            <div class="col-md-10 col-lg-12">
-                <form class="card card-sm">
-                    <div class="card-body row no-gutters align-items-center">
-                        <!--end of col-->
-                        <div class="col">
-                            <input id='dropdown' class="form-control bg-light border-0 small" type="search" autocomplete='off' placeholder="Search for recipes...">
-                        </div>
-                        <!--end of col-->
-                        <div class="col-auto">
-                            <button class="btn btn-primary" type="button" onclick='showRecipes()'> <i class="fas fa-search fa-sm"></i></button>
-                        </div>
-                        <!--end of col-->
+        
+
+        <!-- Logout Modal-->
+        <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">Ready to Leave?</h5>
+                        <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">×</span>
+                        </button>
                     </div>
-                </form>
+                    <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
+                    <div class="modal-footer">
+                        <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
+                        <a class="btn btn-primary" href="login.html">Logout</a>
+                    </div>
+                </div>
             </div>
-            <!--end of col-->
-            </div>
-            
-            <div id='sp1'></div>
         </div>
+
+        <!-- Bootstrap core JavaScript-->
         <script src="vendor/jquery/jquery.min.js"></script>
         <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 
@@ -370,20 +377,13 @@
         <!-- Page level plugins -->
         <script src="vendor/chart.js/Chart.min.js"></script>
 
-        <!-- Page level custom scripts -->
-        <script src="js/demo/chart-area-demo.js"></script>
-        <script src="js/demo/chart-pie-demo.js"></script>
-        <script src="http://code.jquery.com/jquery-3.3.1.min.js"
-        crossorigin="anonymous"></script>
-<!--        <script type='text/javascript' src='typeahead.js'></script>-->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-3-typeahead/4.0.2/bootstrap3-typeahead.min.js"></script>  
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" 
-        crossorigin="anonymous"></script>
-        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js" 
-        crossorigin="anonymous"></script>
+        <!-- food pie chart script -->
+        <script src="js/demo/foodpiechart.js"></script>
+        <script src="js/showrecipes.js"></script>
 
-        <script type="text/javascript" src="js/recipe.js"></script>
-        <!-- <h1 class="display-3 text-center my-4">Search for recipes</h1> -->
-    </body>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-3-typeahead/4.0.2/bootstrap3-typeahead.min.js"></script>
+    <script type="text/javascript" src="js/customize-diet.js"></script>
+
+</body>
 
 </html>
