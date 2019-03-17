@@ -1,4 +1,4 @@
- $(document).ready(function () {
+        $(document).ready(function () {
     var data = JSON.parse(window.localStorage.getItem('data'));
     var name = window.localStorage.getItem('name');
     var i;
