@@ -48,7 +48,7 @@ function showRecipes() {
                 <div class="card-body">\
                     <h4 class="card-title">' + data.hits[j].recipe.label + '</h4>\
                     <p class="card-text">Calories: \
-                    ' + data.hits[j].recipe.calories + '</p><p>   </div>';
+                        ' + data.hits[j].recipe.calories + '</p><p>   </div>';
                 for (var i = 0; i < arr.length; i++) {
                     code += arr[i] + "&nbsp;&nbsp;&nbsp";
                 }

@@ -1,5 +1,6 @@
 var muri=null,suri=null,muriArray=[];
 $(document).ready(function () {
+    //$('#foodresult').show();
     $("#dropdown").typeahead({
         source: function (query, result) {
             var data = {
@@ -60,12 +61,13 @@ function search(){
     $(document).ready(function(){
         $('#dietbutton').click(function() {
             $('#foodresult').toggle();
+            alert("called");
             // $('#piechart').append("<canvas id="foodpiechart"></canvas>");
         });
     });
 	}
 	function check(index){
-		alert(muriArray[index]+" "+index);
+		//alert(muriArray[index]+" "+index);
 		muri=muriArray[index];
 	}
 	function display(fid) { 

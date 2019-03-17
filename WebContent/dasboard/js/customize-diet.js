@@ -21,10 +21,12 @@ $(document).ready(function () {
     });
 });
 function search(){
+    var selectedItem=$("#inlineFormCustomSelect option:selected").text();
+    $("#inlineFormCustomSelect option:selected").addClass('active');
+    $("#inlineFormCustomSelect").show();
+    $('#foodresult').show();
 	var item = $("#dropdown").val();
 	$("#inlineFormCustomSelect").empty();
-	alert('lola');
-	$("#inlineFormCustomSelect").append("<option selected>serving size</option>");
 	var link = "https://api.edamam.com/api/food-database/parser?ingr=" + item + "&app_id=a6471d58&app_key=1371084639e0deae5ca2cae1f0b8a534";
     $.ajax({
         url: link,
@@ -34,11 +36,23 @@ function search(){
             var jsonData = data;
             $("#measurements").empty();
             $("#qualified").empty();
-            
-            for (var i = 0; i < data.hints[0].measures.length; i++) {
+            var name=data.hints[0].food.label;
+            var isSame=false;
+            if($("#name").text()===name) isSame=true;
+            else isSame=false;
+            $("#name").text(name);
+            if(!isSame) {
+                muri=null;
+            }
+            $("#inlineFormCustomSelect").append("<option value='0' selected>"+data.hints[0].measures[0].label+"</option>");
+            muriArray[0]=data.hints[0].measures[0].uri;
+            for (var i = 1; i < data.hints[0].measures.length; i++) {
                 var m = data.hints[0].measures[i].label;
                 var uri = data.hints[0].measures[i].uri;
-				$("#inlineFormCustomSelect").append("<option value='"+i+"'>"+m+"</option>");
+                if(m===selectedItem && isSame)
+				$("#inlineFormCustomSelect").append("<option selected value='"+i+"'>"+m+"</option>");
+            else
+                $("#inlineFormCustomSelect").append("<option value='"+i+"'>"+m+"</option>");
 				muriArray[i+1]=uri;
             }
             //if ('qualified' in data.hints[0].measures[0]) {
@@ -58,18 +72,12 @@ function search(){
         },
         data: JSON.stringify()
     });
-    $(document).ready(function(){
-        $('#dietbutton').click(function() {
-            $('#foodresult').toggle();
-            // $('#piechart').append("<canvas id="foodpiechart"></canvas>");
-        });
-    });
 	}
 	function check(index){
-		alert(muriArray[index]+" "+index);
-		muri=muriArray[index];
+		muri=muriArray[index+1];
 	}
 	function display(fid) { 
+        if(muri==null) muri=muriArray[0];
     if (suri !== null) {
         var food = {
             ingredients: [
@@ -92,7 +100,6 @@ function search(){
             ]
         };
     }
-
     $.ajax({
         type: "post",
         contentType: "application/json; charset=utf-8",
@@ -101,22 +108,15 @@ function search(){
         data: JSON.stringify(food),
         success: function (data) {
             $("#facts").empty();
-            $("#foodname").val(data.ingredients[0].parsed[0].food);
+            $("#name").text(data.ingredients[0].parsed[0].food);
+            $("#sp1").empty();
+            $("#sp1").append(" ("+data.ingredients[0].parsed[0].weight+"g)");
             var num=$("#num").val();
             var check = data.totalNutrients;
-			//alert(check.ENERC_KCAL.quantity + check.ENERC_KCAL.unit);
-			$("#calories").text(check.ENERC_KCAL.quantity + check.ENERC_KCAL.unit);
-			$("#protein").text(check.PROCNT.quantity + check.PROCNT.unit);
-			$("#fats").text(check.FAT.quantity + check.FAT.unit);
-			$("#carbs").text(check.CHOCDF.quantity + check.CHOCDF.unit);
-            //$("#facts").append("<tr><td>Energy</td><td>" + check.ENERC_KCAL.quantity*num + check.ENERC_KCAL.unit + "</td></tr>");
-            //$("#facts").append("<tr><td>Protein</td><td>" + check.PROCNT.quantity*num + check.PROCNT.unit + "</td></tr>");
-            //$("#facts").append("<tr><td>Fat</td><td>" + check.FAT.quantity*num + check.FAT.unit + "</td></tr>");
-            //$("#facts").append("<tr><td>Carbohydrates</td><td>" + check.CHOCDF.quantity*num + check.CHOCDF.unit + "</td></tr>");
-            //$("#facts").append("<tr><td>Cholesterol</td><td>" + check.CHOLE.quantity*num + check.CHOLE.unit + "</td></tr>");
-            //$("#facts").append("<tr><td>Sugar</td><td>" + check.SUGAR.quantity*num + check.SUGAR.unit + "</td></tr>");
-            //$("#facts").append("<tr><td>Vitamin A</td><td>" + check.VITA_RAE.quantity*num + check.VITA_RAE.unit + "</td></tr>");
-
+			$("#calories").text(Math.round(check.ENERC_KCAL.quantity*100)/100 + check.ENERC_KCAL.unit);
+			$("#protein").text(Math.round(check.PROCNT.quantity*100)/100 + check.PROCNT.unit);
+			$("#fats").text(Math.round(check.FAT.quantity*100)/100 + check.FAT.unit);
+			$("#carbs").text(Math.round(check.CHOCDF.quantity*100)/100  + check.CHOCDF.unit);
         }
     });
 }
