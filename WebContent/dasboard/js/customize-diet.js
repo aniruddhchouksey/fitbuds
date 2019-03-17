@@ -1,6 +1,5 @@
 var muri=null,suri=null,muriArray=[];
 $(document).ready(function () {
-    //$('#foodresult').show();
     $("#dropdown").typeahead({
         source: function (query, result) {
             var data = {
@@ -22,11 +21,8 @@ $(document).ready(function () {
     });
 });
 function search(){
-    //alert($("#inlineFormCustomSelect option:selected").text());
     var selectedItem=$("#inlineFormCustomSelect option:selected").text();
-    //alert("selected "+selected);
     $("#inlineFormCustomSelect option:selected").addClass('active');
-    
     $("#inlineFormCustomSelect").show();
     $('#foodresult').show();
 	var item = $("#dropdown").val();
@@ -48,14 +44,11 @@ function search(){
             if(!isSame) {
                 muri=null;
             }
-            //alert($("#name").text(name));
             $("#inlineFormCustomSelect").append("<option value='0' selected>"+data.hints[0].measures[0].label+"</option>");
             muriArray[0]=data.hints[0].measures[0].uri;
-
             for (var i = 1; i < data.hints[0].measures.length; i++) {
                 var m = data.hints[0].measures[i].label;
                 var uri = data.hints[0].measures[i].uri;
-                //alert(m+" "+uri);
                 if(m===selectedItem && isSame)
 				$("#inlineFormCustomSelect").append("<option selected value='"+i+"'>"+m+"</option>");
             else
@@ -79,14 +72,6 @@ function search(){
         },
         data: JSON.stringify()
     });
-    // $(document).ready(function(){
-    //     $('#dietbutton').click(function() {
-    //         $('#foodresult').toggle();
-    //         alert("called");
-    //         // $('#piechart').append("<canvas id="foodpiechart"></canvas>");
-    //     });
-    // }
-    // );
 	}
 	function check(index){
 		muri=muriArray[index+1];
@@ -115,7 +100,6 @@ function search(){
             ]
         };
     }
-    //alert(muri);
     $.ajax({
         type: "post",
         contentType: "application/json; charset=utf-8",
@@ -124,13 +108,15 @@ function search(){
         data: JSON.stringify(food),
         success: function (data) {
             $("#facts").empty();
-            $("#foodname").val(data.ingredients[0].parsed[0].food);
+            $("#name").text(data.ingredients[0].parsed[0].food);
+            $("#sp1").empty();
+            $("#sp1").append(" ("+data.ingredients[0].parsed[0].weight+"g)");
             var num=$("#num").val();
             var check = data.totalNutrients;
-			$("#calories").text(check.ENERC_KCAL.quantity + check.ENERC_KCAL.unit);
-			$("#protein").text(check.PROCNT.quantity + check.PROCNT.unit);
-			$("#fats").text(check.FAT.quantity + check.FAT.unit);
-			$("#carbs").text(check.CHOCDF.quantity + check.CHOCDF.unit);
+			$("#calories").text(Math.round(check.ENERC_KCAL.quantity*100)/100 + check.ENERC_KCAL.unit);
+			$("#protein").text(Math.round(check.PROCNT.quantity*100)/100 + check.PROCNT.unit);
+			$("#fats").text(Math.round(check.FAT.quantity*100)/100 + check.FAT.unit);
+			$("#carbs").text(Math.round(check.CHOCDF.quantity*100)/100  + check.CHOCDF.unit);
         }
     });
 }
