@@ -8,6 +8,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <meta name="description" content="">
   <meta name="author" content="">
+  
+  <meta name="google-signin-client_id" content="291338741462-sgu3bn7l968o94fqtcs32v4j2ql6ejh7.apps.googleusercontent.com">
 
   <title>Login here</title>
 
@@ -73,12 +75,16 @@
                       Login
                     </a>
                     <hr>
-                    <a href="index.html" class="btn btn-google btn-user btn-block">
+                     <div class="g-signin2" onclick="signIn()" data-onsuccess="onSignIn"> 
+                     <a href="index.html" class="btn btn-google btn-user btn-block" onclick="signIn()" data-onsuccess="onSignIn">
                       <i class="fab fa-google fa-fw"></i> Login with Google
-                    </a>
-                    <a href="index.html" class="btn btn-facebook btn-user btn-block">
+                    </a> >!
+                    </div> 
+                    <fb:login-button scope="public_profile,email" onlogin="checkLoginState();">
+</fb:login-button>
+                    <!-- <a href="index.html" onlogin="checkLoginState();" class="btn btn-facebook btn-user btn-block">
                       <i class="fab fa-facebook-f fa-fw"></i> Login with Facebook
-                    </a>
+                    </a> -->
                   </form>
                   <hr>
                   <div class="text-center">
@@ -107,7 +113,9 @@
   <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
 
   <!-- Custom scripts for all pages-->
+	<script src="https://apis.google.com/js/platform.js" async defer></script>
   <script src="js/sb-admin-2.min.js"></script>
+  <script src="js/google-login.js"></script>
 
 </body>
 
