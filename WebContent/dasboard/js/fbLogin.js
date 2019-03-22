@@ -1,4 +1,5 @@
 function statusChangeCallback(response) {
+	alert("here in fb js");
     console.log('statusChangeCallback');
     console.log(response);
     if (response.status === 'connected') {
