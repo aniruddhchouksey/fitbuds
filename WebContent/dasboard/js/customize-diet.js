@@ -55,14 +55,16 @@ function search(){
                 $("#inlineFormCustomSelect").append("<option value='"+i+"'>"+m+"</option>");
 				muriArray[i+1]=uri;
             }
-            //if ('qualified' in data.hints[0].measures[0]) {
-              //  for (var i = 0; i < data.hints[0].measures[0].qualified.length; i++) {
-                //    var m = data.hints[0].measures[0].qualified[i][0].label;
-                  //  var uri = data.hints[0].measures[0].qualified[i][0].uri;
-                    //$("#qualified").append("<a href='#' onclick=\"showsize('" + m + "','" + uri + "')\">" + m + "</a>");
-                //}
-            //}
-            //if (search === null)
+            // if ('qualified' in data.hints[0].measures[0]) {
+              // for (var i = 0; i <
+				// data.hints[0].measures[0].qualified.length; i++) {
+                // var m = data.hints[0].measures[0].qualified[i][0].label;
+                  // var uri = data.hints[0].measures[0].qualified[i][0].uri;
+                    // $("#qualified").append("<a href='#' onclick=\"showsize('"
+					// + m + "','" + uri + "')\">" + m + "</a>");
+                // }
+            // }
+            // if (search === null)
                 display(jsonData.hints[0].food.foodId);
 
         },
@@ -125,3 +127,20 @@ function search(){
         }
     });
 }
+	
+	function add(){
+	if($("#name").text()!='Eggbro'){
+       $("#breakfast").append("<tr>" +
+       		"<th scope='row' >"+$('#name').text()+"</th>" +
+       		"<td>"+$('#calories').text()+"</td>" +
+       				"<td>"+$('#protein').text()+"</td>" +
+       						"<td>"+$('#carbs').text()+"</td>" +
+       								"<td>"+$('#fats').text()+"</td></tr>");
+	}
+	alert(parseInt($("#caloriesTotal").text()));
+	$("#caloriesTotal").text(parseFloat($("#caloriesTotal").text())+parseFloat($('#calories').text(),10));
+	$("#proteinTotal").text(parseFloat($("#proteinTotal").text())+parseFloat($('#protein').text(),10));
+	$("#carbsTotal").text(parseFloat($("#carbsTotal").text())+parseFloat($('#carbs').text(),10));
+	$("#fatsTotal").text(parseFloat($("#fatsTotal").text())+parseFloat($('#fats').text(),10));
+       $("#exampleModal").modal('toggle');
+	}
