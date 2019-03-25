@@ -76,9 +76,11 @@ var myLineChart = new Chart(ctx, {
         ticks: {
           maxTicksLimit: 5,
           padding: 10,
+          stepSize:5000,
           // Include a dollar sign in the ticks
+          
           callback: function(value, index, values) {
-            return '$' + number_format(value);
+            return  number_format(value/5000);
           }
         },
         gridLines: {

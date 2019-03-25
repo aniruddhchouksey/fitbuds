@@ -75,6 +75,7 @@ function search(){
 	}
 	function check(index){
 		muri=muriArray[index+1];
+		search();
 	}
 	function display(fid) { 
         if(muri==null) muri=muriArray[0];
@@ -117,6 +118,10 @@ function search(){
 			$("#protein").text(Math.round(check.PROCNT.quantity*100)/100 + check.PROCNT.unit);
 			$("#fats").text(Math.round(check.FAT.quantity*100)/100 + check.FAT.unit);
 			$("#carbs").text(Math.round(check.CHOCDF.quantity*100)/100  + check.CHOCDF.unit);
+			$("#piechart").append("<canvas id='foodpiechart'></canvas>");
+            update(Math.round(check.PROCNT.quantity*100)/100,Math.round(check.FAT.quantity*100)/100,Math.round(check.CHOCDF.quantity*100)/100  + check.CHOCDF.unit);
+			
+
         }
     });
 }

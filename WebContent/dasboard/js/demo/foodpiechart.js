@@ -33,3 +33,13 @@ var foodpiechart = new Chart(ctx, {
     cutoutPercentage: 80,
   },
 });
+function update(protein,fat,carbs){
+	foodpiechart.data.datasets[0].data[0]=parseInt(protein);
+	foodpiechart.data.datasets[0].data[1]=parseInt(carbs);
+	foodpiechart.data.datasets[0].data[2]=parseInt(fat);
+//	foodpiechart.data.labels.push("Carbs");
+//	foodpiechart.data.datasets.forEach((dataset) => {
+//        dataset.data.push(20);
+//    });
+	foodpiechart.update();
+}
