@@ -1,5 +1,5 @@
-var muri=null,suri=null,muriArray=[];
-$(document).ready(function () {
+var muriLunch=null,suri=null,muriLunchArray=[];
+/*$(document).ready(function () {
     $(".dropdowns").typeahead({
         source: function (query, result) {
             var data = {
@@ -38,16 +38,16 @@ $(document).ready(function () {
 //            });
 //        }
 //    });
-});
-function search(){
-	alert("searched");
-    var selectedItem=$("#inlineFormCustomSelect option:selected").text();
-    $("#inlineFormCustomSelect option:selected").addClass('active');
-    $("#inlineFormCustomSelect").show();
-    $('#foodresult').show();
+});*/
+function searchLunch(){
+    var selectedItem=$("#inlineFormCustomSelectLunch option:selected").text();
+    $("#inlineFormCustomSelectLunch option:selected").addClass('active');
+    $("#inlineFormCustomSelectLunch").show();
+    $('#foodresultLunch').show();
     alert(selectedItem);
-	var item = $("#dropdown").val();
-	$("#inlineFormCustomSelect").empty();
+	var item = $("#dropdownLunch").val();
+	$("#inlineFormCustomSelectLunch").empty();
+	alert(item+" item");
 	var link = "https://api.edamam.com/api/food-database/parser?ingr=" + item + "&app_id=a6471d58&app_key=1371084639e0deae5ca2cae1f0b8a534";
     $.ajax({
         url: link,
@@ -59,23 +59,22 @@ function search(){
             $("#qualified").empty();
             var name=data.hints[0].food.label;
             var isSame=false;
-            if($("#name").text()===name) isSame=true;
+            if($("#nameLunch").text()===name) isSame=true;
             else isSame=false;
-            $("#name").text(name);
+            $("#nameLunch").text(name);
             if(!isSame) {
-                muri=null;
+                muriLunch=null;
             }
-            $("#inlineFormCustomSelect").append("<option value='0' selected>"+data.hints[0].measures[0].label+"</option>");
-            muriArray[0]=data.hints[0].measures[0].uri;
-            alert("lolallaola");
+            $("#inlineFormCustomSelectLunch").append("<option value='0' selected>"+data.hints[0].measures[0].label+"</option>");
+            muriLunchArray[0]=data.hints[0].measures[0].uri;
             for (var i = 1; i < data.hints[0].measures.length; i++) {
                 var m = data.hints[0].measures[i].label;
                 var uri = data.hints[0].measures[i].uri;
                 if(m===selectedItem && isSame)
-				$("#inlineFormCustomSelect").append("<option selected value='"+i+"'>"+m+"</option>");
+				$("#inlineFormCustomSelectLunch").append("<option selected value='"+i+"'>"+m+"</option>");
             else
-                $("#inlineFormCustomSelect").append("<option value='"+i+"'>"+m+"</option>");
-				muriArray[i+1]=uri;
+                $("#inlineFormCustomSelectLunch").append("<option value='"+i+"'>"+m+"</option>");
+				muriLunchArray[i+1]=uri;
             }
             // if ('qualified' in data.hints[0].measures[0]) {
               // for (var i = 0; i <
@@ -87,29 +86,31 @@ function search(){
                 // }
             // }
             // if (search === null)
-                display(jsonData.hints[0].food.foodId);
+            alert("search lunch before");
+                displayLunch(jsonData.hints[0].food.foodId);
 
         },
         error: function (jqXHR, textStatus, errorThrown) {
             alert("Oops! Something went wrong!");
 
         },
-        data: JSON.stringify()
     });
 	}
-	function check(index){
-		muri=muriArray[index+1];
-		search();
+	function checkLunch(index){
+		muriLunch=muriLunchArray[index+1];
+		alert("check lunch" +muriLunch);
+		searchLunch();
+		
 	}
-	function display(fid) { 
-		alert("in display");
-        if(muri==null) muri=muriArray[0];
+	function displayLunch(fid) { 
+		alert(muriLunch);
+        if(muriLunch==null) muriLunch=muriLunchArray[0];
     if (suri !== null) {
         var food = {
             ingredients: [
                 {
                     "quantity": 1,
-                    "measureURI": muri,
+                    "measureURI": muriLunch,
                     "foodId": fid,
                     "qualifiers": [suri]
                 }
@@ -120,7 +121,7 @@ function search(){
             ingredients: [
                 {
                     "quantity": 1,
-                    "measureURI": muri,
+                    "measureURI": muriLunch,
                     "foodId": fid
                 }
             ]
@@ -134,35 +135,33 @@ function search(){
         data: JSON.stringify(food),
         success: function (data) {
             $("#facts").empty();
-            $("#name").text(data.ingredients[0].parsed[0].food);
-            $("#sp1").empty();
-            $("#sp1").append(" ("+data.ingredients[0].parsed[0].weight+"g)");
+            $("#nameLunch").text(data.ingredients[0].parsed[0].food);
+            $("#sp1Lunch").empty();
+            $("#sp1Lunch").append(" ("+data.ingredients[0].parsed[0].weight+"g)");
             var num=$("#num").val();
-            alert(num+" num");
             var check = data.totalNutrients;
-			$("#calories").text(Math.round(check.ENERC_KCAL.quantity*100)/100 + check.ENERC_KCAL.unit);
-			$("#protein").text(Math.round(check.PROCNT.quantity*100)/100 + check.PROCNT.unit);
-			$("#fats").text(Math.round(check.FAT.quantity*100)/100 + check.FAT.unit);
-			$("#carbs").text(Math.round(check.CHOCDF.quantity*100)/100  + check.CHOCDF.unit);
-			$("#piechart").append("<canvas id='foodpiechart'></canvas>");
-            update(Math.round(check.PROCNT.quantity*100)/100,Math.round(check.FAT.quantity*100)/100,Math.round(check.CHOCDF.quantity*100)/100  + check.CHOCDF.unit);
+			$("#caloriesLunch").text(Math.round(check.ENERC_KCAL.quantity*100)/100 + check.ENERC_KCAL.unit);
+			$("#proteinLunch").text(Math.round(check.PROCNT.quantity*100)/100 + check.PROCNT.unit);
+			$("#fatsLunch").text(Math.round(check.FAT.quantity*100)/100 + check.FAT.unit);
+			$("#carbsLunch").text(Math.round(check.CHOCDF.quantity*100)/100  + check.CHOCDF.unit);
+			$("#piechartLunch").append("<canvas id='foodpiechartLunch'></canvas>");
+          //  update(Math.round(check.PROCNT.quantity*100)/100,Math.round(check.FAT.quantity*100)/100,Math.round(check.CHOCDF.quantity*100)/100  + check.CHOCDF.unit);
 			
 
         }
     });
 }
 	
-	function add(){
-		alert("add bf");
-	if($("#name").text()!='Eggbro'){
-       $("#breakfast").append("<tr>" +
-       		"<th scope='row' >"+$('#name').text()+"</th>" +
-       		"<td>"+$('#calories').text()+"</td>" +
-       				"<td>"+$('#protein').text()+"</td>" +
-       						"<td>"+$('#carbs').text()+"</td>" +
-       								"<td>"+$('#fats').text()+"</td></tr>");
+	function addLunch(){
+	if($("#nameLunch").text()!='Eggbro'){
+       $("#lunch").append("<tr>" +
+       		"<th scope='row' >"+$('#nameLunch').text()+"</th>" +
+       		"<td>"+$('#caloriesLunch').text()+"</td>" +
+       				"<td>"+$('#proteinLunch').text()+"</td>" +
+       						"<td>"+$('#carbsLunch').text()+"</td>" +
+       								"<td>"+$('#fatsLunch').text()+"</td></tr>");
 	}
-	alert(parseInt($("#caloriesTotal").text()));
+	alert(parseInt($("#caloriesTotalLunch").text()));
 	$("#caloriesTotal").text(parseFloat($("#caloriesTotal").text())+parseFloat($('#calories').text(),10));
 	$("#proteinTotal").text(parseFloat($("#proteinTotal").text())+parseFloat($('#protein').text(),10));
 	$("#carbsTotal").text(parseFloat($("#carbsTotal").text())+parseFloat($('#carbs').text(),10));

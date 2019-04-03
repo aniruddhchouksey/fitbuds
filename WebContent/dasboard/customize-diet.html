@@ -340,6 +340,19 @@
 
                 <!-- FOOD SECTION -->
         <div class="container">
+        <table class="table">
+                            <thead class="thead-dark">
+                                <tr>
+                                  <th scope="col">Item</th>
+                                  
+                                <th scope="col">Calories</th>
+                                  <th scope="col">Protein</th>
+                                  <th scope="col">Carbs</th>
+                                  <th scope="col">Fats</th>
+                                  
+                                </tr>
+                            </thead>
+                            </table>
             <!-- BREAKFAST -->
             <div class="container">
                 <div class="row">
@@ -355,18 +368,7 @@
                 </div>
                 <div class="row">
                     <div class="col-12">
-                        <table class="table">
-                            <thead class="thead-dark">
-                                <tr>
-                                  <th scope="col">Item</th>
-                                  
-                                <th scope="col">Calories</th>
-                                  <th scope="col">Protein</th>
-                                  <th scope="col">Carbs</th>
-                                  <th scope="col">Fats</th>
-                                  
-                                </tr>
-                            </thead>
+                        <table class='table'>
                           <tbody id='breakfast'>
                             <!-- <tr>
                               <th scope="row" >Egg</th>
@@ -396,7 +398,7 @@
                                  <!-- SEARCH BAR FOR THE FOOD -->
                                 <div class="col-10">
                                     <div class="input-group">
-                                        <input type="text" id='dropdown' class="form-control bg-light border-0 small" autocomplete='off' placeholder="Search for..." aria-label="Search" aria-describedby="basic-addon2">
+                                        <input type="text" id='dropdown' class=" dropdowns form-control bg-light border-0 small" autocomplete='off' placeholder="Search for..." aria-label="Search" aria-describedby="basic-addon2">
                                         <div class="input-group-append">
                                             <button class="btn btn-primary" type="button" id="dietbutton" onclick='search()'>
                                                 <i class="fas fa-search fa-sm"></i>
@@ -405,13 +407,13 @@
                                     </div>
                                 </div>
                                 <!-- SEARCH BUTTON CUSTOM DIET WALA -->
-                                <div class="col-lg-2 justify-content-center">
+                                <!-- <div class="col-lg-2 justify-content-center">
                                     <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal">Custom</button>
-                                    <!-- Modal -->
+                                    Modal
                                       <div class="modal fade" id="myModal" role="dialog">
                                         <div class="modal-dialog modal-sm">
                                         
-                                          <!-- Modal content-->
+                                          Modal content
                                           <div class="modal-content">
                                             <div class="modal-header">
                                               <button type="button" class="close" data-dismiss="modal">&times;</button>
@@ -426,7 +428,7 @@
                                           </div>
                                       </div>
                                 </div>
-                            </div>
+                            </div> -->
                                 <div class="container" style="display: none" id="foodresult">
                                      <!-- PIE CHART FOR THE FOOD -->
                                     <div class="col-12">
@@ -503,17 +505,17 @@
                     </div>
                     <div class="col-lg-8 ">
                         <!-- Button trigger modal -->
-                        <button type="button" class="btn btn-light btn-sm" data-toggle="modal" data-target="#exampleModal">
+                        <button type="button" class="btn btn-light btn-sm" data-toggle="modal" data-target="#exampleModalLunch">
                           Add food
                         </button>
                     </div>
                 </div>
                     <!-- Modal -->
-                <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <!-- <div class="modal fade" id="exampleModalLunch" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                   <div class="modal-dialog" role="document">
                     <div class="modal-content">
                       <div class="modal-header">
-                        <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+                        <h5 class="modal-title" id="exampleModalLabel">Lunch</h5>
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                           <span aria-hidden="true">&times;</span>
                         </button>
@@ -524,6 +526,119 @@
                       <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
                         <button type="button" class="btn btn-primary">Save changes</button>
+                      </div>
+                    </div>
+                  </div>
+                </div> -->
+                <div class="modal fade" id="exampleModalLunch" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                  <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                      <div class="modal-header">
+                        <h4 class="modal-title" id="exampleModalLabel">Lunch</h4>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                          <span aria-hidden="true">&times;</span>
+                        </button>
+                      </div>
+                      <div class="modal-body">
+                        <!-- Modal main section -->
+                        <div class="container">
+                            <div class="row">
+                                 <!-- SEARCH BAR FOR THE FOOD -->
+                                <div class="col-10">
+                                    <div class="input-group">
+                                        <input type="text" id='dropdownLunch' class=" dropdowns form-control bg-light border-0 small" autocomplete='off' placeholder="Search for..." aria-label="Search" aria-describedby="basic-addon2">
+                                        <div class="input-group-append">
+                                            <button class="btn btn-primary" type="button" id="dietbutton" onclick='searchLunch()'>
+                                                <i class="fas fa-search fa-sm"></i>
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- SEARCH BUTTON CUSTOM DIET WALA -->
+                                <div class="col-lg-2 justify-content-center">
+                                    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal">Custom</button>
+                                    <!-- Modal -->
+                                      <div class="modal fade" id="myModal" role="dialog">
+                                        <div class="modal-dialog modal-sm">
+                                        
+                                          <!-- Modal content-->
+                                          <div class="modal-content">
+                                            <div class="modal-header">
+                                              <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                              <h4 class="modal-title">Modal Header</h4>
+                                            </div>
+                                            <div class="modal-body">
+                                              <p>Some text in the modal.</p>
+                                            </div>
+                                            <div class="modal-footer">
+                                              <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                                            </div>
+                                          </div>
+                                      </div>
+                                </div>
+                            </div>
+                                <div class="container" style="display: none" id="foodresultLunch">
+                                     <!-- PIE CHART FOR THE FOOD -->
+                                    <div class="col-12">
+                                        <div class="chart-pie pt-4" id="piechartLunch">
+                                          <canvas id="foodpiechartLunch"></canvas> 
+                                        </div>
+                                        <hr>     
+                                    </div>
+                                    <!-- content -->
+                                    <div class="col-12">
+                                        <div class="row">
+                                            <div class="col-4">
+                                                <div class="align-items-streach">
+                                                    <h4 id='nameLunch'>Eggbro</h4>
+                                                    <span id='sp1Lunch'></span>
+                                                </div>
+                                            </div>
+                                            <div class="col-8">
+                                                <form>
+                                                    <div class="form-row align-items-center">
+                                                        <div class="col-auto my-1">
+                                                            <select class="custom-select mr-sm-2" onchange="checkLunch(this.selectedIndex)" id="inlineFormCustomSelectLunch">
+                                                                <option selected>serving size</option>
+                                                                
+                                                            </select>
+                                                        </div>
+                                                    </div>
+                                                </form>
+                                            </div>
+                                        </div>
+                                        
+                                        <table class="table table-sm table-dark">
+                                          <thead>
+                                            <tr>
+                                              <th scope="col">protein (gm)</th>
+                                              <th scope="col" id="proteinLunch">55</th>
+                                            </tr>
+                                          </thead>
+                                          <tbody>
+                                            <tr>
+                                              <th scope="row">Carbohydrates (gm)</th>
+                                              <td id="carbsLunch">35</td>
+                                            </tr>
+                                            <tr>
+                                              <th scope="row">Fats (gm)</th>
+                                              <td id="fats">20</td>
+                                            </tr>
+                                            <tr>
+                                              <th scope="row">Calories (cals)</th>
+                                              <td id="caloriesLunch" colspan="2"></td>
+                                            </tr>
+                                          </tbody>
+                                        </table>
+                                    </div>
+                                    
+                                   </div>
+                                </div>
+                            </div>
+                          </div>
+                      <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                        <button type="button" class="btn btn-primary" onclick="addLunch()">Save changes</button>
                       </div>
                     </div>
                   </div>
@@ -546,21 +661,115 @@
                     </div>
                 </div>
                     <!-- Modal -->
-                <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                 <div class="modal fade" id="exampleModalLunch" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                   <div class="modal-dialog" role="document">
                     <div class="modal-content">
                       <div class="modal-header">
-                        <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+                        <h4 class="modal-title" id="exampleModalLabel">Lunch</h4>
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                           <span aria-hidden="true">&times;</span>
                         </button>
                       </div>
                       <div class="modal-body">
-                        ...
-                      </div>
+                        <!-- Modal main section -->
+                        <div class="container">
+                            <div class="row">
+                                 <!-- SEARCH BAR FOR THE FOOD -->
+                                <div class="col-10">
+                                    <div class="input-group">
+                                        <input type="text" id='dropdownDinner' class="dropdowns form-control bg-light border-0 small" autocomplete='off' placeholder="Search for..." aria-label="Search" aria-describedby="basic-addon2">
+                                        <div class="input-group-append">
+                                            <button class="btn btn-primary" type="button" id="dietbutton" onclick='searchDinner()'>
+                                                <i class="fas fa-search fa-sm"></i>
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- SEARCH BUTTON CUSTOM DIET WALA -->
+                                <div class="col-lg-2 justify-content-center">
+                                    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal">Custom</button>
+                                    <!-- Modal -->
+                                      <div class="modal fade" id="myModal" role="dialog">
+                                        <div class="modal-dialog modal-sm">
+                                        
+                                          <!-- Modal content-->
+                                          <div class="modal-content">
+                                            <div class="modal-header">
+                                              <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                              <h4 class="modal-title">Modal Header</h4>
+                                            </div>
+                                            <div class="modal-body">
+                                              <p>Some text in the modal.</p>
+                                            </div>
+                                            <div class="modal-footer">
+                                              <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                                            </div>
+                                          </div>
+                                      </div>
+                                </div>
+                            </div>
+                                <div class="container" style="display: none" id="foodresultDinner">
+                                     <!-- PIE CHART FOR THE FOOD -->
+                                    <div class="col-12">
+                                        <div class="chart-pie pt-4" id="piechartDinner">
+                                          <canvas id="foodpiechartDinner"></canvas> 
+                                        </div>
+                                        <hr>     
+                                    </div>
+                                    <!-- content -->
+                                    <div class="col-12">
+                                        <div class="row">
+                                            <div class="col-4">
+                                                <div class="align-items-streach">
+                                                    <h4 id='nameDinner'>Eggbro</h4>
+                                                    <span id='sp1Dinner'></span>
+                                                </div>
+                                            </div>
+                                            <div class="col-8">
+                                                <form>
+                                                    <div class="form-row align-items-center">
+                                                        <div class="col-auto my-1">
+                                                            <select class="custom-select mr-sm-2" onchange="check(this.selectedIndex)" id="inlineFormCustomSelectDinner">
+                                                                <option selected>serving size</option>
+                                                                
+                                                            </select>
+                                                        </div>
+                                                    </div>
+                                                </form>
+                                            </div>
+                                        </div>
+                                        
+                                        <table class="table table-sm table-dark">
+                                          <thead>
+                                            <tr>
+                                              <th scope="col">protein (gm)</th>
+                                              <th scope="col" id="proteinDinner">55</th>
+                                            </tr>
+                                          </thead>
+                                          <tbody>
+                                            <tr>
+                                              <th scope="row">Carbohydrates (gm)</th>
+                                              <td id="carbsDinner">35</td>
+                                            </tr>
+                                            <tr>
+                                              <th scope="row">Fats (gm)</th>
+                                              <td id="fatsDinner">20</td>
+                                            </tr>
+                                            <tr>
+                                              <th scope="row">Calories (cals)</th>
+                                              <td id="caloriesDinner" colspan="2"></td>
+                                            </tr>
+                                          </tbody>
+                                        </table>
+                                    </div>
+                                    
+                                   </div>
+                                </div>
+                            </div>
+                          </div>
                       <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                        <button type="button" class="btn btn-primary">Save changes</button>
+                        <button type="button" class="btn btn-primary" onclick="add()">Save changes</button>
                       </div>
                     </div>
                   </div>
@@ -583,21 +792,115 @@
                     </div>
                 </div>
                     <!-- Modal -->
-                <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                 <div class="modal fade" id="exampleModalLunch" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                   <div class="modal-dialog" role="document">
                     <div class="modal-content">
                       <div class="modal-header">
-                        <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+                        <h4 class="modal-title" id="exampleModalLabel">Lunch</h4>
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                           <span aria-hidden="true">&times;</span>
                         </button>
                       </div>
                       <div class="modal-body">
-                        ...
-                      </div>
+                        <!-- Modal main section -->
+                        <div class="container">
+                            <div class="row">
+                                 <!-- SEARCH BAR FOR THE FOOD -->
+                                <div class="col-10">
+                                    <div class="input-group">
+                                        <input type="text" id='dropdownSnacks' class=" dropdowns form-control bg-light border-0 small" autocomplete='off' placeholder="Search for..." aria-label="Search" aria-describedby="basic-addon2">
+                                        <div class="input-group-append">
+                                            <button class="btn btn-primary" type="button" id="dietbutton" onclick='searchSnacks()'>
+                                                <i class="fas fa-search fa-sm"></i>
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- SEARCH BUTTON CUSTOM DIET WALA -->
+                                <div class="col-lg-2 justify-content-center">
+                                    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal">Custom</button>
+                                    <!-- Modal -->
+                                      <div class="modal fade" id="myModal" role="dialog">
+                                        <div class="modal-dialog modal-sm">
+                                        
+                                          <!-- Modal content-->
+                                          <div class="modal-content">
+                                            <div class="modal-header">
+                                              <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                              <h4 class="modal-title">Modal Header</h4>
+                                            </div>
+                                            <div class="modal-body">
+                                              <p>Some text in the modal.</p>
+                                            </div>
+                                            <div class="modal-footer">
+                                              <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                                            </div>
+                                          </div>
+                                      </div>
+                                </div>
+                            </div>
+                                <div class="container" style="display: none" id="foodresult">
+                                     <!-- PIE CHART FOR THE FOOD -->
+                                    <div class="col-12">
+                                        <div class="chart-pie pt-4" id="piechartSnacks">
+                                          <canvas id="foodpiechartSnacks"></canvas> 
+                                        </div>
+                                        <hr>     
+                                    </div>
+                                    <!-- content -->
+                                    <div class="col-12">
+                                        <div class="row">
+                                            <div class="col-4">
+                                                <div class="align-items-streach">
+                                                    <h4 id='nameSnacks'>Eggbro</h4>
+                                                    <span id='sp1Snacks'></span>
+                                                </div>
+                                            </div>
+                                            <div class="col-8">
+                                                <form>
+                                                    <div class="form-row align-items-center">
+                                                        <div class="col-auto my-1">
+                                                            <select class="custom-select mr-sm-2" onchange="check(this.selectedIndex)" id="inlineFormCustomSelectSnacks">
+                                                                <option selected>serving size</option>
+                                                                
+                                                            </select>
+                                                        </div>
+                                                    </div>
+                                                </form>
+                                            </div>
+                                        </div>
+                                        
+                                        <table class="table table-sm table-dark">
+                                          <thead>
+                                            <tr>
+                                              <th scope="col">protein (gm)</th>
+                                              <th scope="col" id="proteinSnacks">55</th>
+                                            </tr>
+                                          </thead>
+                                          <tbody>
+                                            <tr>
+                                              <th scope="row">Carbohydrates (gm)</th>
+                                              <td id="carbsSnacks">35</td>
+                                            </tr>
+                                            <tr>
+                                              <th scope="row">Fats (gm)</th>
+                                              <td id="fatsSnacks">20</td>
+                                            </tr>
+                                            <tr>
+                                              <th scope="row">Calories (cals)</th>
+                                              <td id="caloriesSnacks" colspan="2"></td>
+                                            </tr>
+                                          </tbody>
+                                        </table>
+                                    </div>
+                                    
+                                   </div>
+                                </div>
+                            </div>
+                          </div>
                       <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                        <button type="button" class="btn btn-primary">Save changes</button>
+                        <button type="button" class="btn btn-primary" onclick="add()">Save changes</button>
                       </div>
                     </div>
                   </div>
@@ -702,6 +1005,7 @@
         <script src="js/demo/foodpiechart.js"></script>
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-3-typeahead/4.0.2/bootstrap3-typeahead.min.js"></script>
 		<script type="text/javascript" src="js/customize-diet.js"></script>
+		<script type="text/javascript" src="js/customize-diet-lunch.js"></script>
 
 </body>
 

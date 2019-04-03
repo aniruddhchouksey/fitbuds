@@ -83,13 +83,14 @@ body, html {
 										<a href="index.html"
 											class="btn btn-primary btn-user btn-block"> Login </a>
 										<hr>
-										
-										 <div class="g-signin2" onclick="signIn()"
+										<div  class=' text-center'>
+										 <div class="g-signin2 m-auto display-block" onclick="signIn()"
 											data-onsuccess="onSignIn">Sign in with Google</div>
 										
-										<fb:login-button scope="public_profile,email"
+										<fb:login-button scope="public_profile,email" class=" mt-0"  
 											onlogin="checkLoginState();">Sign in with Facebook
                     </fb:login-button>
+                    </div>
 										<!-- <a href="index.html" onlogin="checkLoginState();" class="btn btn-facebook btn-user btn-block">
                       <i class="fab fa-facebook-f fa-fw"></i> Login with Facebook
                     </a> -->
