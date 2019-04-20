@@ -40,12 +40,10 @@ $(document).ready(function () {
 //    });
 });
 function search(){
-	alert("searched");
     var selectedItem=$("#inlineFormCustomSelect option:selected").text();
     $("#inlineFormCustomSelect option:selected").addClass('active');
     $("#inlineFormCustomSelect").show();
     $('#foodresult').show();
-    alert(selectedItem);
 	var item = $("#dropdown").val();
 	$("#inlineFormCustomSelect").empty();
 	var link = "https://api.edamam.com/api/food-database/parser?ingr=" + item + "&app_id=a6471d58&app_key=1371084639e0deae5ca2cae1f0b8a534";
@@ -67,7 +65,6 @@ function search(){
             }
             $("#inlineFormCustomSelect").append("<option value='0' selected>"+data.hints[0].measures[0].label+"</option>");
             muriArray[0]=data.hints[0].measures[0].uri;
-            alert("lolallaola");
             for (var i = 1; i < data.hints[0].measures.length; i++) {
                 var m = data.hints[0].measures[i].label;
                 var uri = data.hints[0].measures[i].uri;
@@ -100,9 +97,9 @@ function search(){
 	function check(index){
 		muri=muriArray[index+1];
 		search();
+		alert("check bf"+muri);
 	}
 	function display(fid) { 
-		alert("in display");
         if(muri==null) muri=muriArray[0];
     if (suri !== null) {
         var food = {
@@ -138,7 +135,6 @@ function search(){
             $("#sp1").empty();
             $("#sp1").append(" ("+data.ingredients[0].parsed[0].weight+"g)");
             var num=$("#num").val();
-            alert(num+" num");
             var check = data.totalNutrients;
 			$("#calories").text(Math.round(check.ENERC_KCAL.quantity*100)/100 + check.ENERC_KCAL.unit);
 			$("#protein").text(Math.round(check.PROCNT.quantity*100)/100 + check.PROCNT.unit);
@@ -153,7 +149,7 @@ function search(){
 }
 	
 	function add(){
-		alert("add bf");
+		
 	if($("#name").text()!='Eggbro'){
        $("#breakfast").append("<tr>" +
        		"<th scope='row' >"+$('#name').text()+"</th>" +
@@ -162,7 +158,6 @@ function search(){
        						"<td>"+$('#carbs').text()+"</td>" +
        								"<td>"+$('#fats').text()+"</td></tr>");
 	}
-	alert(parseInt($("#caloriesTotal").text()));
 	$("#caloriesTotal").text(parseFloat($("#caloriesTotal").text())+parseFloat($('#calories').text(),10));
 	$("#proteinTotal").text(parseFloat($("#proteinTotal").text())+parseFloat($('#protein').text(),10));
 	$("#carbsTotal").text(parseFloat($("#carbsTotal").text())+parseFloat($('#carbs').text(),10));

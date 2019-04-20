@@ -97,13 +97,13 @@ function searchLunch(){
     });
 	}
 	function checkLunch(index){
+
 		muriLunch=muriLunchArray[index+1];
-		alert("check lunch" +muriLunch);
 		searchLunch();
-		
+		alert(muriLunch+" bababa");
 	}
 	function displayLunch(fid) { 
-		alert(muriLunch);
+		alert(muriLunch+" in display");
         if(muriLunch==null) muriLunch=muriLunchArray[0];
     if (suri !== null) {
         var food = {
