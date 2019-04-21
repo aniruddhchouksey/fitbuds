@@ -343,12 +343,12 @@
         <table class="table">
                             <thead class="thead-dark">
                                 <tr>
-                                  <th scope="col">Item</th>
+                                  <th style='width:20%'scope="col">Item</th>
                                   
-                                <th scope="col">Calories</th>
-                                  <th scope="col">Protein</th>
-                                  <th scope="col">Carbs</th>
-                                  <th scope="col">Fats</th>
+                                <th style='width:10%' scope="col">Calories</th>
+                                  <th style='width:10%' scope="col">Protein</th>
+                                  <th style='width:10%' scope="col">Carbs</th>
+                                  <th style='width:10%' scope="col">Fats</th>
                                   
                                 </tr>
                             </thead>
@@ -510,26 +510,20 @@
                         </button>
                     </div>
                 </div>
-                    <!-- Modal -->
-                <!-- <div class="modal fade" id="exampleModalLunch" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                  <div class="modal-dialog" role="document">
-                    <div class="modal-content">
-                      <div class="modal-header">
-                        <h5 class="modal-title" id="exampleModalLabel">Lunch</h5>
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                          <span aria-hidden="true">&times;</span>
-                        </button>
-                      </div>
-                      <div class="modal-body">
-                        ...
-                      </div>
-                      <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                        <button type="button" class="btn btn-primary">Save changes</button>
-                      </div>
+                    <div class="col-12">
+                        <table class='table'>
+                          <tbody id='lunch'>
+                            <!-- <tr>
+                              <th scope="row" >Egg</th>
+                              <td>30</td>
+                              <td>25</td>
+                              <td>20</td>
+                            </tr> -->
+                          </tbody>
+                        </table>
                     </div>
-                  </div>
-                </div> -->
+                
+                   
                 <div class="modal fade" id="exampleModalLunch" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                   <div class="modal-dialog" role="document">
                     <div class="modal-content">
@@ -564,7 +558,6 @@
                                           <!-- Modal content-->
                                           <div class="modal-content">
                                             <div class="modal-header">
-                                              <button type="button" class="close" data-dismiss="modal">&times;</button>
                                               <h4 class="modal-title">Modal Header</h4>
                                             </div>
                                             <div class="modal-body">
@@ -622,7 +615,7 @@
                                             </tr>
                                             <tr>
                                               <th scope="row">Fats (gm)</th>
-                                              <td id="fats">20</td>
+                                              <td id="fatsLunch">20</td>
                                             </tr>
                                             <tr>
                                               <th scope="row">Calories (cals)</th>
@@ -655,17 +648,31 @@
                     </div>
                     <div class="col-lg-8 ">
                         <!-- Button trigger modal -->
-                        <button type="button" class="btn btn-light btn-sm" data-toggle="modal" data-target="#exampleModal">
+                        <button type="button" class="btn btn-light btn-sm" data-toggle="modal" data-target="#exampleModalDinner">
                           Add food
                         </button>
                     </div>
                 </div>
+                <div class="row">
+                    <div class="col-12">
+                        <table class='table'>
+                          <tbody id='dinner'>
+                            <!-- <tr>
+                              <th scope="row" >Egg</th>
+                              <td>30</td>
+                              <td>25</td>
+                              <td>20</td>
+                            </tr> -->
+                          </tbody>
+                        </table>
+                    </div>
+                </div>
                     <!-- Modal -->
-                 <div class="modal fade" id="exampleModalLunch" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                 <div class="modal fade" id="exampleModalDinner" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                   <div class="modal-dialog" role="document">
                     <div class="modal-content">
                       <div class="modal-header">
-                        <h4 class="modal-title" id="exampleModalLabel">Lunch</h4>
+                        <h4 class="modal-title" id="exampleModalLabel">Dinner</h4>
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                           <span aria-hidden="true">&times;</span>
                         </button>
@@ -685,29 +692,7 @@
                                         </div>
                                     </div>
                                 </div>
-                                <!-- SEARCH BUTTON CUSTOM DIET WALA -->
-                                <div class="col-lg-2 justify-content-center">
-                                    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal">Custom</button>
-                                    <!-- Modal -->
-                                      <div class="modal fade" id="myModal" role="dialog">
-                                        <div class="modal-dialog modal-sm">
-                                        
-                                          <!-- Modal content-->
-                                          <div class="modal-content">
-                                            <div class="modal-header">
-                                              <button type="button" class="close" data-dismiss="modal">&times;</button>
-                                              <h4 class="modal-title">Modal Header</h4>
-                                            </div>
-                                            <div class="modal-body">
-                                              <p>Some text in the modal.</p>
-                                            </div>
-                                            <div class="modal-footer">
-                                              <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                                            </div>
-                                          </div>
-                                      </div>
-                                </div>
-                            </div>
+                                
                                 <div class="container" style="display: none" id="foodresultDinner">
                                      <!-- PIE CHART FOR THE FOOD -->
                                     <div class="col-12">
@@ -729,7 +714,7 @@
                                                 <form>
                                                     <div class="form-row align-items-center">
                                                         <div class="col-auto my-1">
-                                                            <select class="custom-select mr-sm-2" onchange="check(this.selectedIndex)" id="inlineFormCustomSelectDinner">
+                                                            <select class="custom-select mr-sm-2" onchange="checkDinner(this.selectedIndex)" id="inlineFormCustomSelectDinner">
                                                                 <option selected>serving size</option>
                                                                 
                                                             </select>
@@ -769,7 +754,7 @@
                           </div>
                       <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                        <button type="button" class="btn btn-primary" onclick="add()">Save changes</button>
+                        <button type="button" class="btn btn-primary" onclick="addDinner()">Save changes</button>
                       </div>
                     </div>
                   </div>
@@ -786,17 +771,29 @@
                     </div>
                     <div class="col-lg-8 ">
                         <!-- Button trigger modal -->
-                        <button type="button" class="btn btn-light btn-sm" data-toggle="modal" data-target="#exampleModal">
+                        <button type="button" class="btn btn-light btn-sm" data-toggle="modal" data-target="#exampleModalSnacks">
                           Add food
                         </button>
                     </div>
                 </div>
+                <div class="col-12">
+                        <table class='table'>
+                          <tbody id='snacks'>
+                            <!-- <tr>
+                              <th scope="row" >Egg</th>
+                              <td>30</td>
+                              <td>25</td>
+                              <td>20</td>
+                            </tr> -->
+                          </tbody>
+                        </table>
+                    </div>
                     <!-- Modal -->
-                 <div class="modal fade" id="exampleModalLunch" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                 <div class="modal fade" id="exampleModalSnacks" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                   <div class="modal-dialog" role="document">
                     <div class="modal-content">
                       <div class="modal-header">
-                        <h4 class="modal-title" id="exampleModalLabel">Lunch</h4>
+                        <h4 class="modal-title" id="exampleModalLabel">Snacks</h4>
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                           <span aria-hidden="true">&times;</span>
                         </button>
@@ -816,30 +813,8 @@
                                         </div>
                                     </div>
                                 </div>
-                                <!-- SEARCH BUTTON CUSTOM DIET WALA -->
-                                <div class="col-lg-2 justify-content-center">
-                                    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal">Custom</button>
-                                    <!-- Modal -->
-                                      <div class="modal fade" id="myModal" role="dialog">
-                                        <div class="modal-dialog modal-sm">
-                                        
-                                          <!-- Modal content-->
-                                          <div class="modal-content">
-                                            <div class="modal-header">
-                                              <button type="button" class="close" data-dismiss="modal">&times;</button>
-                                              <h4 class="modal-title">Modal Header</h4>
-                                            </div>
-                                            <div class="modal-body">
-                                              <p>Some text in the modal.</p>
-                                            </div>
-                                            <div class="modal-footer">
-                                              <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                                            </div>
-                                          </div>
-                                      </div>
-                                </div>
-                            </div>
-                                <div class="container" style="display: none" id="foodresult">
+                                
+                                <div class="container" style="display: none" id="foodresultSnacks">
                                      <!-- PIE CHART FOR THE FOOD -->
                                     <div class="col-12">
                                         <div class="chart-pie pt-4" id="piechartSnacks">
@@ -860,7 +835,7 @@
                                                 <form>
                                                     <div class="form-row align-items-center">
                                                         <div class="col-auto my-1">
-                                                            <select class="custom-select mr-sm-2" onchange="check(this.selectedIndex)" id="inlineFormCustomSelectSnacks">
+                                                            <select class="custom-select mr-sm-2" onchange="checkSnacks(this.selectedIndex)" id="inlineFormCustomSelectSnacks">
                                                                 <option selected>serving size</option>
                                                                 
                                                             </select>
@@ -900,7 +875,7 @@
                           </div>
                       <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                        <button type="button" class="btn btn-primary" onclick="add()">Save changes</button>
+                        <button type="button" class="btn btn-primary" onclick="addSnacks()">Save changes</button>
                       </div>
                     </div>
                   </div>
@@ -1003,9 +978,14 @@
 
         <!-- food pie chart script -->
         <script src="js/demo/foodpiechart.js"></script>
+        <script src="js/demo/foodpiechartLunch.js"></script>
+        <script src="js/demo/foodpiechartDinner.js"></script>
+        <script src="js/demo/foodpiechartSnacks.js"></script>
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-3-typeahead/4.0.2/bootstrap3-typeahead.min.js"></script>
 		<script type="text/javascript" src="js/customize-diet.js"></script>
 		<script type="text/javascript" src="js/customize-diet-lunch.js"></script>
+		<script type="text/javascript" src="js/customize-diet-dinner.js"></script>
+		<script type="text/javascript" src="js/customize-diet-snacks.js"></script>
 
 </body>
 

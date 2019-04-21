@@ -1,4 +1,4 @@
-var muri=null,suri=null,muriArray=[];
+ muri=null,suri=null,muriArray=[];
 $(document).ready(function () {
     $(".dropdowns").typeahead({
         source: function (query, result) {
@@ -56,19 +56,21 @@ function search(){
             $("#measurements").empty();
             $("#qualified").empty();
             var name=data.hints[0].food.label;
-            var isSame=false;
-            if($("#name").text()===name) isSame=true;
+            /*var isSame=false;
+            if($("#name").text()===name) { alert("budbak1");isSame=true;}
             else isSame=false;
             $("#name").text(name);
             if(!isSame) {
+            	alert("budbak2");
                 muri=null;
-            }
+            }*/
             $("#inlineFormCustomSelect").append("<option value='0' selected>"+data.hints[0].measures[0].label+"</option>");
             muriArray[0]=data.hints[0].measures[0].uri;
             for (var i = 1; i < data.hints[0].measures.length; i++) {
                 var m = data.hints[0].measures[i].label;
                 var uri = data.hints[0].measures[i].uri;
-                if(m===selectedItem && isSame)
+                /*if(m===selectedItem && isSame)*/
+                if(m===selectedItem )
 				$("#inlineFormCustomSelect").append("<option selected value='"+i+"'>"+m+"</option>");
             else
                 $("#inlineFormCustomSelect").append("<option value='"+i+"'>"+m+"</option>");
@@ -97,10 +99,11 @@ function search(){
 	function check(index){
 		muri=muriArray[index+1];
 		search();
-		alert("check bf"+muri);
+		alert("check bf hulala"+muri);
 	}
 	function display(fid) { 
         if(muri==null) muri=muriArray[0];
+        alert("display "+muri);
     if (suri !== null) {
         var food = {
             ingredients: [
@@ -152,11 +155,11 @@ function search(){
 		
 	if($("#name").text()!='Eggbro'){
        $("#breakfast").append("<tr>" +
-       		"<th scope='row' >"+$('#name').text()+"</th>" +
-       		"<td>"+$('#calories').text()+"</td>" +
-       				"<td>"+$('#protein').text()+"</td>" +
-       						"<td>"+$('#carbs').text()+"</td>" +
-       								"<td>"+$('#fats').text()+"</td></tr>");
+       		"<th style='width:20%' scope='row' >"+$('#name').text()+"</th>" +
+       		"<td style='width:10%'>"+$('#calories').text()+"</td>" +
+       				"<td style='width:10%'>"+$('#protein').text()+"</td>" +
+       						"<td style='width:10%'>"+$('#carbs').text()+"</td>" +
+       								"<td style='width:10%'>"+$('#fats').text()+"</td></tr>");
 	}
 	$("#caloriesTotal").text(parseFloat($("#caloriesTotal").text())+parseFloat($('#calories').text(),10));
 	$("#proteinTotal").text(parseFloat($("#proteinTotal").text())+parseFloat($('#protein').text(),10));

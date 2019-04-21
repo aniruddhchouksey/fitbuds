@@ -8,9 +8,9 @@ public class DBListener implements ServletContextListener{
 	public void contextInitialized(ServletContextEvent evt) {
 		ServletContext c = evt.getServletContext();
 		String driver = c.getInitParameter("driverName").trim();
-		String url = c.getInitParameter("connectionUrl").trim();
-		String username = c.getInitParameter("username").trim();
-		String password = c.getInitParameter("password").trim();
+		String url = c.getInitParameter("jdbc:mysql://localhost:3306/fitbuds").trim();
+		String username = c.getInitParameter("root").trim();
+		String password = c.getInitParameter("sahaj231197").trim();
 		Connection conn = null;
 		try {
 			Class.forName(driver);
