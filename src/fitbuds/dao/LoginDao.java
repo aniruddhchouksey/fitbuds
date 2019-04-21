@@ -3,7 +3,7 @@ package fitbuds.dao;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
 
-import com.mysql.cj.xdevapi.Statement;
+import com.mysql.jdbc.Statement;
 
 import fitbuds.dbutil.DBConnection;
 import fitbuds.dto.User;
