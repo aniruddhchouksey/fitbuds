@@ -19,6 +19,22 @@ $(document).ready(function () {
             });
         }
     });
+    $('#tableBf').on('click', '.btn', function(){
+        $(this).closest ('tr').remove ();
+       // var val = $(this).closest('tr').find('#calories').text();
+        var calories = $(this).closest('tr').find('.calories').text();
+        
+        var protein = $(this).closest('tr').find('.protein').text();
+        var carbs = $(this).closest('tr').find('.carbs').text();
+        var fats = $(this).closest('tr').find('.fats').text();
+        
+        $("#caloriesTotal").text(Number.parseFloat(parseFloat($("#caloriesTotal").text(),10)-parseFloat(calories,10)).toPrecision(4));
+    	$("#proteinTotal").text(Number.parseFloat(parseFloat($("#proteinTotal").text(),10)-parseFloat(protein,10)).toPrecision(4));
+    	$("#carbsTotal").text(Number.parseFloat(parseFloat($("#carbsTotal").text(),10)-parseFloat(carbs,10)).toPrecision(4));
+    	$("#fatsTotal").text(Number.parseFloat(parseFloat($("#fatsTotal").text(),10)-parseFloat(fats,10)).toPrecision(4));
+        
+       // alert(val);
+    });
 //    $("#dropdownLunch").typeahead({
 //        source: function (query, result) {
 //            var data = {
@@ -99,11 +115,9 @@ function search(){
 	function check(index){
 		muri=muriArray[index+1];
 		search();
-		alert("check bf hulala"+muri);
 	}
 	function display(fid) { 
         if(muri==null) muri=muriArray[0];
-        alert("display "+muri);
     if (suri !== null) {
         var food = {
             ingredients: [
@@ -156,14 +170,15 @@ function search(){
 	if($("#name").text()!='Eggbro'){
        $("#breakfast").append("<tr>" +
        		"<th style='width:20%' scope='row' >"+$('#name').text()+"</th>" +
-       		"<td style='width:10%'>"+$('#calories').text()+"</td>" +
-       				"<td style='width:10%'>"+$('#protein').text()+"</td>" +
-       						"<td style='width:10%'>"+$('#carbs').text()+"</td>" +
-       								"<td style='width:10%'>"+$('#fats').text()+"</td></tr>");
+       		"<td style='width:10%' class='calories'>"+$('#calories').text()+"</td>" +
+       				"<td style='width:10%' class='protein'>"+$('#protein').text()+"</td>" +
+       						"<td style='width:10%' class='carbs'>"+$('#carbs').text()+"</td>" +
+       								"<td style='width:10%' class='fats'>"+$('#fats').text()+"</td>" +
+       										"<td class='text-center'><button type='button' class='btn'>Remove</button></td></tr>");
 	}
-	$("#caloriesTotal").text(parseFloat($("#caloriesTotal").text())+parseFloat($('#calories').text(),10));
-	$("#proteinTotal").text(parseFloat($("#proteinTotal").text())+parseFloat($('#protein').text(),10));
-	$("#carbsTotal").text(parseFloat($("#carbsTotal").text())+parseFloat($('#carbs').text(),10));
-	$("#fatsTotal").text(parseFloat($("#fatsTotal").text())+parseFloat($('#fats').text(),10));
+	$("#caloriesTotal").text(Number.parseFloat(parseFloat($("#caloriesTotal").text())+parseFloat($('#calories').text(),10)).toPrecision(4));
+	$("#proteinTotal").text(Number.parseFloat(parseFloat($("#proteinTotal").text())+parseFloat($('#protein').text(),10)).toPrecision(4));
+	$("#carbsTotal").text(Number.parseFloat(parseFloat($("#carbsTotal").text())+parseFloat($('#carbs').text(),10)).toPrecision(4));
+	$("#fatsTotal").text(Number.parseFloat(parseFloat($("#fatsTotal").text())+parseFloat($('#fats').text(),10)).toPrecision(4));
        $("#exampleModal").modal('toggle');
 	}
