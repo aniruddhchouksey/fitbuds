@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
-
+<%@ page import ="fitbuds.dto.User" %>
 <head>
 
     <meta charset="utf-8">
@@ -314,7 +314,13 @@
                         <!-- Nav Item - User Information -->
                         <li class="nav-item dropdown no-arrow">
                             <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                <span class="mr-2 d-none d-lg-inline text-gray-600 small" id='user-name'>Lola Prashad</span>
+                                <span class="mr-2 d-none d-lg-inline text-gray-600 small" id='user-name'>
+                                <%
+                                	User user = (User)session.getAttribute("user");
+                                	String firstName = user.getFirstName();
+                                	out.print(firstName);
+                                %>
+                                </span>
                                 <img class="img-profile rounded-circle" id='profile-pic' src="https://source.unsplash.com/QAB-WJcbgJk/60x60">
                             </a>
                             <!-- Dropdown - User Information -->

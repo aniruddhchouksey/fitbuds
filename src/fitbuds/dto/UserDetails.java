@@ -1,7 +1,7 @@
 package fitbuds.dto;
 
 import java.sql.Blob;
-import java.util.Date;
+import java.sql.Date;
 
 public class UserDetails {
 	private String firstName;

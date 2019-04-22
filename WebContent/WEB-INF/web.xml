@@ -21,7 +21,7 @@
   <context-param>
     <param-name>password</param-name>
     <param-value>
-  				root
+  				admin
   		</param-value>
   </context-param>
   <listener>

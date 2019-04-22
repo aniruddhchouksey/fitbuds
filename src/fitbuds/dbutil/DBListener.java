@@ -2,15 +2,18 @@ package fitbuds.dbutil;
 
 import java.sql.*;
 import javax.servlet.*;
+import com.mysql.cj.jdbc.Driver;
+
 
 public class DBListener implements ServletContextListener{
 	@Override
 	public void contextInitialized(ServletContextEvent evt) {
 		ServletContext c = evt.getServletContext();
 		String driver = c.getInitParameter("driverName").trim();
-		String url = c.getInitParameter("jdbc:mysql://localhost:3306/fitbuds").trim();
-		String username = c.getInitParameter("root").trim();
-		String password = c.getInitParameter("sahaj231197").trim();
+		String url = c.getInitParameter("connectionUrl").trim();
+		String username = c.getInitParameter("username").trim();
+		String password = c.getInitParameter("password").trim();
+		System.out.println("Driver " + driver + "\nUrl " + url + "\nusername " + username + "\npassword " + password);
 		Connection conn = null;
 		try {
 			Class.forName(driver);
