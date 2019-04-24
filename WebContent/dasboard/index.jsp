@@ -56,10 +56,16 @@
                     <span>Search recipie</span></a>
             </li>
             <li class="nav-item active">
-                <a class="nav-link" href="#">
+                <a class="nav-link" href="workout.html">
                     <i class="fas fa-fw fa-dumbbell"></i>
                     <span>Workout</span></a>
             </li>
+            <li class="nav-item active">
+                <a class="nav-link" href="yourdietplan.jsp">
+                    <i class="fas fa-utensils"></i>
+                    <span>Your diet-plan</span></a>
+            </li>
+            
 
 
             <!-- Divider -->
@@ -315,11 +321,11 @@
                         <li class="nav-item dropdown no-arrow">
                             <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                 <span class="mr-2 d-none d-lg-inline text-gray-600 small" id='user-name'>
-                                <%
+<%--                                 <%
                                 	User user = (User)session.getAttribute("user");
                                 	String firstName = user.getFirstName();
                                 	out.print(firstName);
-                                %>
+                                %> --%>
                                 </span>
                                 <img class="img-profile rounded-circle" id='profile-pic' src="https://source.unsplash.com/QAB-WJcbgJk/60x60">
                             </a>

@@ -2,7 +2,7 @@ package fitbuds.dbutil;
 
 import java.sql.*;
 import javax.servlet.*;
-import com.mysql.cj.jdbc.Driver;
+import com.mysql.jdbc.Driver;
 
 
 public class DBListener implements ServletContextListener{
