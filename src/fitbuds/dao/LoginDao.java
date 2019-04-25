@@ -23,7 +23,7 @@ public class LoginDao {
 	public static User getUser(String email) throws SQLException {
 		PreparedStatement ps;
 		ps = DBConnection.getConnection().prepareStatement(
-				"Select first_name,last_name, email, password,weight,profilePic, recommended_calorie, diet_plan_id,"
+				"Select first_name,last_name, email, password,weight,profile_pic, recommended_calorie, diet_plan_id,"
 						+ " workout_plan_id from user_details where email = ? ");
 		ps.setString(1, email);
 		ResultSet rs = ps.executeQuery();

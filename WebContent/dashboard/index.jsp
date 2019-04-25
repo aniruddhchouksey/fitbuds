@@ -3,6 +3,7 @@
 <%@ page import ="fitbuds.dto.User" %>
 <head>
 
+	<base href = "dashboard/">
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -321,11 +322,11 @@
                         <li class="nav-item dropdown no-arrow">
                             <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                 <span class="mr-2 d-none d-lg-inline text-gray-600 small" id='user-name'>
-<%--                                 <%
+                               <%
                                 	User user = (User)session.getAttribute("user");
                                 	String firstName = user.getFirstName();
                                 	out.print(firstName);
-                                %> --%>
+                                %>
                                 </span>
                                 <img class="img-profile rounded-circle" id='profile-pic' src="https://source.unsplash.com/QAB-WJcbgJk/60x60">
                             </a>
