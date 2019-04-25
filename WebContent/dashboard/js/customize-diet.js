@@ -169,12 +169,12 @@ function search(){
 		
 	if($("#name").text()!='Eggbro'){
        $("#breakfast").append("<tr>" +
-       		"<th style='width:20%' scope='row' >"+$('#name').text()+"</th>" +
+       		"<th style='width:35%' scope='row' >"+$('#name').text()+"</th>" +
        		"<td style='width:10%' class='calories'>"+$('#calories').text()+"</td>" +
        				"<td style='width:10%' class='protein'>"+$('#protein').text()+"</td>" +
        						"<td style='width:10%' class='carbs'>"+$('#carbs').text()+"</td>" +
        								"<td style='width:10%' class='fats'>"+$('#fats').text()+"</td>" +
-       										"<td class='text-center'><button type='button' class='btn'>Remove</button></td></tr>");
+       										"<td class='text-center' style='width:10%'><button type='button' class='btn'>Remove</button></td></tr>");
 	}
 	$("#caloriesTotal").text(Number.parseFloat(parseFloat($("#caloriesTotal").text())+parseFloat($('#calories').text(),10)).toPrecision(4));
 	$("#proteinTotal").text(Number.parseFloat(parseFloat($("#proteinTotal").text())+parseFloat($('#protein').text(),10)).toPrecision(4));

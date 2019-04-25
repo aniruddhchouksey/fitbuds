@@ -1,5 +1,20 @@
 var muriLunch=null,suri=null,muriLunchArray=[];
-
+$('#tableLunch').on('click', '.btn', function(){
+    $(this).closest ('tr').remove ();
+   // var val = $(this).closest('tr').find('#calories').text();
+    var calories = $(this).closest('tr').find('.caloriesLunch').text();
+    
+    var protein = $(this).closest('tr').find('.proteinLunch').text();
+    var carbs = $(this).closest('tr').find('.carbsLunch').text();
+    var fats = $(this).closest('tr').find('.fatsLunch').text();
+    alert(calories);
+    $("#caloriesTotal").text(Number.parseFloat(parseFloat($("#caloriesTotal").text(),10)-parseFloat(calories,10)).toPrecision(4));
+	$("#proteinTotal").text(Number.parseFloat(parseFloat($("#proteinTotal").text(),10)-parseFloat(protein,10)).toPrecision(4));
+	$("#carbsTotal").text(Number.parseFloat(parseFloat($("#carbsTotal").text(),10)-parseFloat(carbs,10)).toPrecision(4));
+	$("#fatsTotal").text(Number.parseFloat(parseFloat($("#fatsTotal").text(),10)-parseFloat(fats,10)).toPrecision(4));
+    
+   // alert(val);
+});
 function searchLunch(){
     var selectedItem=$("#inlineFormCustomSelectLunch option:selected").text();
     $("#inlineFormCustomSelectLunch option:selected").addClass('active');
@@ -116,7 +131,8 @@ function searchLunch(){
        		"<td style='width:10%'>"+$('#caloriesLunch').text()+"</td>" +
        				"<td style='width:10%'>"+$('#proteinLunch').text()+"</td>" +
        						"<td style='width:10%'>"+$('#carbsLunch').text()+"</td>" +
-       								"<td style='width:10%'>"+$('#fatsLunch').text()+"</td></tr>");
+       								"<td style='width:10%'>"+$('#fatsLunch').text()+"</td>"+
+       							"<td class='text-center' style='width:10%'><button type='button' class='btn'>Remove</button></td></tr>");;
 	}
 	$("#caloriesTotal").text(parseFloat($("#caloriesTotal").text())+parseFloat($('#caloriesLunch').text(),10));
 	$("#proteinTotal").text(parseFloat($("#proteinTotal").text())+parseFloat($('#proteinLunch').text(),10));

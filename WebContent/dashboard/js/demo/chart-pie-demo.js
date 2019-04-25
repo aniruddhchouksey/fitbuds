@@ -9,7 +9,7 @@ var myPieChart = new Chart(ctx, {
   data: {
     labels: ["Protein", "Carbohydrate", "Fat"],
     datasets: [{
-      data: [150, 300, 70],
+      data: [110, 275, 73],
       backgroundColor: ['#dc3545', '#17a2b8', '#ffc107'],
       hoverBackgroundColor: ['#2e59d9', '#17a673', '#2c9faf'],
       hoverBorderColor: "rgba(234, 236, 244, 1)",

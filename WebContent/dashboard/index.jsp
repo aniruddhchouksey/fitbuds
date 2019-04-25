@@ -408,7 +408,7 @@
                             <div class="card shadow mb-4">
                                 <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
 
-                                    <h6 class="m-0 font-weight-bold text-primary">Calories  -  <span class="float-right text-dark">   2000</span></h6>
+                                    <h6 class="m-0 font-weight-bold text-primary">Calories  -  <span class="float-right text-dark">   2200</span></h6>
                                     <div class="dropdown no-arrow">
                                         <a class="dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                             <i class="fas fa-ellipsis-v fa-sm fa-fw text-gray-400"></i>
@@ -466,30 +466,30 @@
                                     Monday
                                  </td><td>
                                     
-                                    Sample day
+                                    Chest
                                     
                                 </td></tr><tr><td>
                                     Tuesday
                                  </td><td><span class="text-muted">
-                                    Rest day
+                                    Back
                                     </span></td></tr><tr><td>
                                     Wednesday
                                  </td><td>
                                     
-                                    Another sample day
+                                    Shoulders
                                     
                                 </td></tr><tr><td>
                                     Thursday
                                  </td><td><span class="text-muted">
-                                    Rest day
+                                    Abs
                                     </span></td></tr><tr><td>
                                     Friday
                                  </td><td><span class="text-muted">
-                                    Rest day
+                                    Legs
                                     </span></td></tr><tr><td>
                                     Saturday
                                  </td><td><span class="text-muted">
-                                    Rest day
+                                    Arms
                                     </span></td></tr><tr><td>
                                     Sunday
                                  </td><td><span class="text-muted">
@@ -522,7 +522,7 @@
                                                 Energy
                                             </td>
                                         <td>
-                                        877.7 kcal
+                                        2200 kcal
                                         </td>
                                             </tr>
                                                 <tr>
@@ -530,11 +530,11 @@
                                                         Protein
                                                     </td>
                                         <td>
-                                        64.6 g
+                                        110 g
                                     </td></tr><tr><td>Carbohydrates</td><td>
-                                        117.7 g
+                                         275 g
                                     </td></tr><tr><td>Fat</td><td>
-                                        18.6 g
+                                       73 g
                                     </td></tr></tbody>
                                 </table>
                             </div>
@@ -559,49 +559,69 @@
                                     <table class="table table-hover table-condensed">
                                         <tbody>
                                             <tr><td>
-                                                March 3, 2019
+                                                Jul 1, 2019
                                             </td><td>
-                                                82.50
+                                                87.00
                                             </td><td>
                                                 
                                                 
-                                                    -0.50
+                                                    +2.00
                                                 
                                             </td><td></td></tr><tr><td>
-                                                March 2, 2019
-                                            </td><td>
-                                                83.00
-                                            </td><td>
-                                                
-                                                    +
-                                                
-                                                
-                                                    0.50
-                                                
-                                            </td><td></td></tr><tr><td>
-                                                March 1, 2019
-                                            </td><td>
-                                                82.50
-                                            </td><td>
-                                                
-                                                
-                                                    -2.50
-                                                
-                                            </td><td></td></tr><tr><td>
-                                                Feb. 28, 2019
+                                                Jun 1, 2019
                                             </td><td>
                                                 85.00
                                             </td><td>
                                                 
-                                                    +
+                                                    -
                                                 
                                                 
-                                                    0.50
+                                                    5.00
                                                 
                                             </td><td></td></tr><tr><td>
-                                                Feb. 27, 2019
+                                                May 1, 2019
                                             </td><td>
-                                                84.50
+                                                90.00
+                                            </td><td>
+                                                
+                                                
+                                                    +1.00
+                                                
+                                            </td><td></td></tr><tr><td>
+                                                Apr 1, 2019
+                                            </td><td>
+                                                89.00
+                                            </td><td>
+                                                
+                                                    
+                                                
+                                                
+                                                    +2.00
+                                                
+                                            </td><td></td></tr><tr><td>
+                                                Mar 1, 2019
+                                            </td><td>
+                                                87.00
+                                            </td><td>
+                                                
+                                                
+                                                    -3.00
+                                                
+                                            </td><td></td></tr>
+                                            <tr><td>
+                                                Feb 1, 2019
+                                            </td><td>
+                                                90.00
+                                            </td><td>
+                                                
+                                                
+                                                    -6.00
+                                                
+                                            </td><td></td></tr>
+                                            <tr><td>
+                                                Jan 1, 2019
+                                            </td><td>
+                                                96.00
                                             </td><td>
                                                 
                                                 
@@ -616,7 +636,7 @@
                     <div class="row">
                         <div class="col-lg-6">
                             <!-- Basic Card Example -->
-                            <div class="card shadow mb-4">
+                            <!-- <div class="card shadow mb-4">
                                 <div class="card-header py-3">
                                     <h6 class="m-0 font-weight-bold text-primary">Know Your Activites</h6>
                                 </div>
@@ -652,7 +672,7 @@
 
                         </div>
                         <div class="col-lg-6">
-                            <!-- Basic Card Example -->
+                            Basic Card Example
                             <div class="card shadow mb-4">
                                 <div class="card-header py-3">
                                     <h6 class="m-0 font-weight-bold text-primary">Micro Nutrients</h6>
@@ -663,7 +683,7 @@
                             </div>
 
                         </div>
-                    </div>
+                    </div> -->
                     <!-- /.container-fluid -->
 
                 </div>
@@ -673,7 +693,8 @@
                 <footer class="sticky-footer bg-white">
                     <div class="container my-auto">
                         <div class="copyright text-center my-auto">
-                            <span>Copyright &copy; Your Website 2019</span>
+                            
+                            <span>Copyright &copy; Fitbuds 2019</span>
                         </div>
                     </div>
                 </footer>
